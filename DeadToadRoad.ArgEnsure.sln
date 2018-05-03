@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{893DD8FE-6B90-4B2D-8409-AE194F51CC81}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9DB95A6E-3763-4BF0-9320-E9EAA71C7A44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadToadRoad.ArgEnsure", "src\DeadToadRoad.ArgEnsure\DeadToadRoad.ArgEnsure.csproj", "{2F3F1D2E-9E75-4ADC-9B36-6A43C545CA4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{1FD294E4-AFC6-4E7B-B3AC-F05422D9DADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadToadRoad.ArgEnsure.Tests", "tests\unit\DeadToadRoad.ArgEnsure.Tests\DeadToadRoad.ArgEnsure.Tests.csproj", "{4D220AE9-E79A-4614-B978-B76F7CB94417}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{5F86E3DE-AC51-42DC-AF4C-1304C363B525}"
+ProjectSection(SolutionItems) = preProject
+	build\build.sh = build\build.sh
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mono", "mono", "{0031BA4C-6706-4097-97B9-98390DF514B1}"
+ProjectSection(SolutionItems) = preProject
+	build\mono\build.sh = build\mono\build.sh
+	build\mono\pack.sh = build\mono\pack.sh
+	build\mono\restore.sh = build\mono\restore.sh
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{402EEDD5-BF4A-4843-904E-4B0DBBCA72D9}"
+ProjectSection(SolutionItems) = preProject
+	build\dotnet\test.sh = build\dotnet\test.sh
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{FC9805A3-C757-4032-AA9E-9A40A329F9ED}"
+ProjectSection(SolutionItems) = preProject
+	build\images\build.sh = build\images\build.sh
+	build\images\clean.sh = build\images\clean.sh
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{F0724869-6862-4E0A-AFB7-262D7ECC9538}"
+ProjectSection(SolutionItems) = preProject
+	build\images\dotnet\Dockerfile = build\images\dotnet\Dockerfile
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mono", "mono", "{D0860C01-502C-4816-B812-DA09F065C921}"
+ProjectSection(SolutionItems) = preProject
+	build\images\mono\Dockerfile = build\images\mono\Dockerfile
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2F3F1D2E-9E75-4ADC-9B36-6A43C545CA4D} = {893DD8FE-6B90-4B2D-8409-AE194F51CC81}
+		{1FD294E4-AFC6-4E7B-B3AC-F05422D9DADF} = {9DB95A6E-3763-4BF0-9320-E9EAA71C7A44}
+		{4D220AE9-E79A-4614-B978-B76F7CB94417} = {1FD294E4-AFC6-4E7B-B3AC-F05422D9DADF}
+		{0031BA4C-6706-4097-97B9-98390DF514B1} = {5F86E3DE-AC51-42DC-AF4C-1304C363B525}
+		{402EEDD5-BF4A-4843-904E-4B0DBBCA72D9} = {5F86E3DE-AC51-42DC-AF4C-1304C363B525}
+		{FC9805A3-C757-4032-AA9E-9A40A329F9ED} = {5F86E3DE-AC51-42DC-AF4C-1304C363B525}
+		{F0724869-6862-4E0A-AFB7-262D7ECC9538} = {FC9805A3-C757-4032-AA9E-9A40A329F9ED}
+		{D0860C01-502C-4816-B812-DA09F065C921} = {FC9805A3-C757-4032-AA9E-9A40A329F9ED}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F3F1D2E-9E75-4ADC-9B36-6A43C545CA4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F3F1D2E-9E75-4ADC-9B36-6A43C545CA4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F3F1D2E-9E75-4ADC-9B36-6A43C545CA4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F3F1D2E-9E75-4ADC-9B36-6A43C545CA4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D220AE9-E79A-4614-B978-B76F7CB94417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D220AE9-E79A-4614-B978-B76F7CB94417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D220AE9-E79A-4614-B978-B76F7CB94417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D220AE9-E79A-4614-B978-B76F7CB94417}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

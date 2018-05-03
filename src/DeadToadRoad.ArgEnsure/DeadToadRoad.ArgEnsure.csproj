@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>net45;netstandard1.0;netstandard2.0</TargetFrameworks>
+    </PropertyGroup>
+    <ItemGroup>
+        <Folder Include="Extensions"/>
+        <Folder Include="Internal\Extensions"/>
+    </ItemGroup>
+    <PropertyGroup>
+        <AssemblyTitle>ArgEnsure</AssemblyTitle>
+        <Authors>Adam Boddington</Authors>
+        <PackageProjectUrl>https://bitbucket.org/deadtoadroad/arg-ensure</PackageProjectUrl>
+    </PropertyGroup>
+</Project>

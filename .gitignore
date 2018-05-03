@@ -1,0 +1,7 @@
+.idea/
+bin/
+obj/
+packages/
+*.DotSettings.user
+*.nupkg
+user.sh
