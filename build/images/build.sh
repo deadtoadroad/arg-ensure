@@ -12,8 +12,8 @@ if [[ $target != 'mono' && $target != 'dotnet' ]]; then
 fi
 
 cd "${scriptRoot}"
-echo "addgroup -gid $(id -g) ${USER}" > user.sh
-echo "adduser --shell /bin/bash --uid $(id -u) --gid $(id -g) ${USER}" >> user.sh
+echo "addgroup --system -gid $(id -g) ${USER}" > user.sh
+echo "adduser --system --shell /bin/bash --uid $(id -u) --gid $(id -g) ${USER}" >> user.sh
 
 if [[ $target == 'mono' ]]; then
     cp ./user.sh ./mono/

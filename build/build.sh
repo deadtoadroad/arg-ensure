@@ -5,9 +5,9 @@ set -euo pipefail
 scriptRoot="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 slnRoot="$(dirname "${scriptRoot}")"
 slnRootDocker="/home/${USER}/arg-ensure"
-mono="docker run --rm -u "${USER}:${USER}" -v "${slnRoot}:${slnRootDocker}" deadtoadroad/mono bash -c ${slnRootDocker}/build/mono"
+mono="docker run --rm -u "$(id -u):$(id -g)" -v "${slnRoot}:${slnRootDocker}" deadtoadroad/mono bash -c ${slnRootDocker}/build/mono"
 # xunit requires the exact dependency (2.0.0), not the latest version.
-dotnet="docker run --rm -u "${USER}:${USER}" -v "${slnRoot}:${slnRootDocker}" deadtoadroad/dotnet:2.0.0-sdk bash -c ${slnRootDocker}/build/dotnet"
+dotnet="docker run --rm -u "$(id -u):$(id -g)" -v "${slnRoot}:${slnRootDocker}" deadtoadroad/dotnet:2.0.0-sdk bash -c ${slnRootDocker}/build/dotnet"
 
 function contains {
     local m="$1" e
