@@ -46,6 +46,8 @@ if contains 'clean' "${targets[@]}"; then
 fi
 
 if contains 'restore' "${targets[@]}"; then
+    eval "${imagesRoot}/build.sh dotnet"
+    eval "${dotnet}/restore.sh"
     eval "${imagesRoot}/build.sh mono"
     eval "${mono}/restore.sh"
 fi
