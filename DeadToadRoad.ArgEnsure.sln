@@ -13,6 +13,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{5F86E3DE-AC51-42DC-AF4C-1304C363B525}"
 ProjectSection(SolutionItems) = preProject
 	build\build.sh = build\build.sh
+	build\contains-f.sh = build\contains-f.sh
+	build\join-f.sh = build\join-f.sh
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mono", "mono", "{0031BA4C-6706-4097-97B9-98390DF514B1}"
