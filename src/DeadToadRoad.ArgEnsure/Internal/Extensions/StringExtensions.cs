@@ -10,7 +10,7 @@ namespace DeadToadRoad.ArgEnsure.Internal.Extensions
             if (arg.Value == null)
                 return arg.Andable;
 
-            return arg.IsNot(v => v == string.Empty, "Argument is empty.");
+            return arg.IsNot(a => a == string.Empty, "Argument is empty.");
         }
 
         public static Andable<Arg<string>> IsNotWhitespace(this Arg<string> arg)
@@ -19,8 +19,7 @@ namespace DeadToadRoad.ArgEnsure.Internal.Extensions
             if (arg.Value == null)
                 return arg.Andable;
 
-            // This predicate returns true for empty strings as well.
-            return arg.IsNot(v => v.ToCharArray().All(char.IsWhiteSpace), "Argument is whitespace.");
+            return arg.IsNot(a => a.ToCharArray().All(char.IsWhiteSpace), "Argument is whitespace.");
         }
     }
 }
