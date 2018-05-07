@@ -1,6 +1,6 @@
 # ArgEnsure
 
-Easy to write, easy to read guard clauses for your method arguments.
+Easy to write, easy to read guard clauses for your .NET methods.
 
 ## Common Usage
 
@@ -32,7 +32,7 @@ Ensure.Arg(nameof(myArg), myArg).IsNotNull().And.IsNotWhitespace();
 
 ## Extensions
 
-Creating your own guard clause is easy to do.
+Creating your own guard clauses is easy to do.
 
 ```csharp
 public static class ArgExtensions
@@ -46,7 +46,7 @@ public static class ArgExtensions
 }
 ```
 
-And use.
+Using them is too.
 
 ```csharp
 Ensure.Arg(nameof(myArg), myArg).IsGreaterThanZero();
@@ -68,7 +68,7 @@ Building the source from scratch can be done a number of ways.
 
 ### Docker
 
-The easiest method is by using Docker. If you have Git and Docker installed you can use the included scripts to kick off a build immediately. No other tool is required.
+The easiest method is by using Docker. If you have Bash, Git and Docker installed you can use the included scripts to kick off a build immediately. No other tools are required.
 
 ```
 cd build
@@ -77,12 +77,10 @@ cd build
 ./build.sh clean
 ```
 
-#### Caveats
+In order to eliminate file ownership problems the Docker images are ammended with your uid and gid, and will run as you instead of root.
 
-In order to eliminate ownership problems the Docker images are ammended with your uid and gid, and will run as you instead of root.
-
-The build script also assumes you have a home directory containing `.nuget/packages`. It's okay if you don't, but you will after the script completes. This directory is not cleaned up by `./build/build.sh clean`.
+The scripts also assume you have a home directory containing `.nuget/packages`. It's okay if you don't, but you will after the scripts complete. This directory is not cleaned up by `./build/build.sh clean`.
 
 ### Build Tools
 
-If you don't want to use Docker and you have sufficent build tools installed, you can make use of the scripts in `build/dotnet` and `build/mono`, or you can run your own builds via the command line or IDE. The required .NET frameworks are currently 4.5, 1.0 and 2.0.
+If you don't want to use Docker and you have sufficent build tools installed, you can make use of the scripts in `build/dotnet` and `build/mono`, or you can run your own builds via the command line or IDE. The required frameworks are currently .NET 4.5, .NET Core 1.0 and .NET Core 2.0.
