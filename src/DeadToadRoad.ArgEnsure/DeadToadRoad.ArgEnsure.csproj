@@ -10,8 +10,11 @@
         <PackageReference Include="Nerdbank.GitVersioning" Version="2.1.23"/>
     </ItemGroup>
     <PropertyGroup>
-        <AssemblyTitle>ArgEnsure</AssemblyTitle>
         <Authors>Adam Boddington</Authors>
-        <PackageProjectUrl>https://bitbucket.org/deadtoadroad/arg-ensure</PackageProjectUrl>
+        <Description>Easy to write, easy to read guard clauses for your .NET methods.</Description>
+        <Copyright>Copyright (c) 2018 Adam Boddington</Copyright>
+        <PackageLicenseUrl>https://github.com/deadtoadroad/arg-ensure/blob/master/LICENCE</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/deadtoadroad/arg-ensure</PackageProjectUrl>
+        <PackageTags>arg argument param parameter ensure guard clause</PackageTags>
     </PropertyGroup>
 </Project>

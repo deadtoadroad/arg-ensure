@@ -6,4 +6,4 @@ scriptRoot="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 slnRoot="$(dirname "$(dirname "${scriptRoot}")")"
 
 cd "${slnRoot}"
-msbuild /t:Pack /p:Configuration=Release /p:PackageOutputPath="${slnRoot}"
+msbuild /t:Pack /p:Configuration=Release /p:PublicRelease=True /p:PackageOutputPath="${slnRoot}"

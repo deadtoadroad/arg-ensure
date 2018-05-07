@@ -83,4 +83,4 @@ The scripts also assume you have a home directory containing `.nuget/packages`. 
 
 ### Build Tools
 
-If you don't want to use Docker and you have sufficent build tools installed, you can make use of the scripts in `build/dotnet` and `build/mono`, or you can run your own builds via the command line or IDE. The required frameworks are currently .NET 4.5, .NET Core 1.0 and .NET Core 2.0.
+If you don't want to use Docker and you have sufficent build tools installed, you can make use of the scripts in `build/dotnet` and `build/mono`, or you can run your own builds via the command line or IDE.
