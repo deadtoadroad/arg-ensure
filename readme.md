@@ -1,6 +1,6 @@
 # ArgEnsure
 
-Easy to write, easy to read guard clauses for your .NET methods.
+Easy to write, easy to read guard clauses for your .NET methods. Available as a [NuGet package](https://www.nuget.org/packages/DeadToadRoad.ArgEnsure/).
 
 ## Common Usage
 
