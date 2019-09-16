@@ -70,17 +70,19 @@ Building the source from scratch can be done a number of ways.
 
 The easiest method is by using Docker. If you have Bash, Git and Docker installed you can use the included scripts to kick off a build immediately. No other tools are required.
 
-```
+```bash
 cd build
 ./build.sh restore
 ./build.sh test
-./build.sh clean
+./build.sh clean # or
+./build.sh clean-repo
 ```
-
-In order to eliminate file ownership problems the Docker images are ammended with your uid and gid, and will run as you instead of root.
-
-The scripts also assume you have a home directory containing `.nuget/packages`. It's okay if you don't, but you will after the scripts complete. This directory is not cleaned up by `./build/build.sh clean`.
 
 ### Build Tools
 
-If you don't want to use Docker and you have sufficent build tools installed, you can make use of the scripts in `build/dotnet` and `build/mono`, or you can run your own builds via the command line or IDE.
+If you have sufficient build tools installed, the standard `dotnet` CLI commands will also work.
+
+#### Ubuntu 18.04
+
+* [Mono](https://www.mono-project.com/download/stable/#download-lin-ubuntu), `mono-devel`
+* [.NET Core SDK 2.0 or above](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/sdk-current)

@@ -4,65 +4,73 @@ set -euo pipefail
 
 scriptRoot="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 slnRoot="$(dirname "${scriptRoot}")"
-imagesRoot="${slnRoot}/build/images"
-homeDocker="/home/${USER}"
-slnRootDocker="${homeDocker}/arg-ensure"
-mono="docker run --rm -u "$(id -u):$(id -g)" -v "${slnRoot}:${slnRootDocker}" -v "${HOME}/.nuget:${homeDocker}/.nuget" deadtoadroad/mono bash -c ${slnRootDocker}/build/mono"
-# xunit requires the exact dependency (2.0.0), not the latest version.
-dotnet="docker run --rm -u "$(id -u):$(id -g)" -v "${slnRoot}:${slnRootDocker}" -v "${HOME}/.nuget:${homeDocker}/.nuget" deadtoadroad/dotnet:2.0.0-sdk bash -c ${slnRootDocker}/build/dotnet"
+containerHome="/root"
+containerSlnRoot="${containerHome}/arg-ensure"
+containerName="deadtoadroad/dotnet-core-sdk-mono-devel:2.2"
+buildContainer="echo '*** Building Docker image...' && docker build ${scriptRoot} -t ${containerName}"
+runContainer="echo '*** Running Docker container...' && docker run --rm -v "${slnRoot}:${containerSlnRoot}" -v "${slnRoot}/packages:${containerHome}/.nuget" -w "${containerSlnRoot}" ${containerName} bash -c"
 
-source "${scriptRoot}/contains-f.sh"
-source "${scriptRoot}/join-f.sh"
+source "${scriptRoot}/f-contains.sh"
+source "${scriptRoot}/f-join.sh"
 
-target="${1:-test}"
+targets=("$@")
 
-case "${target}" in
-    'clean')
-        targets=(clean)
-        ;;
-    'restore')
-        targets=(restore)
-        ;;
-    'build')
-        targets=(build)
-        ;;
-    'test')
-        targets=(build test)
-        ;;
-    'pack')
-        targets=(build test pack)
-        ;;
-    *)
-        echo "Unknown target: ${target}."
-        exit 1
-esac
-
-echo "Targets: $(join ', ' "${targets[@]}")."
-
-if contains 'clean' "${targets[@]}"; then
-    eval "${imagesRoot}/clean.sh"
-    cd "${slnRoot}"
-    git clean -fdxe packages/
+if [[ "$#" -eq "0" ]]; then
+    targets+=(test)
 fi
 
-if contains 'restore' "${targets[@]}"; then
-    eval "${imagesRoot}/build.sh dotnet"
-    eval "${dotnet}/restore.sh"
-    eval "${imagesRoot}/build.sh mono"
-    eval "${mono}/restore.sh"
-fi
-
-if contains 'build' "${targets[@]}"; then
-    eval "${imagesRoot}/build.sh mono"
-    eval "${mono}/build.sh"
-fi
-
-if contains 'test' "${targets[@]}"; then
-    eval "${imagesRoot}/build.sh dotnet"
-    eval "${dotnet}/test.sh"
+if contains 'clean-all' "${targets[@]}"; then
+    targets+=(clean-docker clean-repo)
 fi
 
 if contains 'pack' "${targets[@]}"; then
-    eval "${imagesRoot}/build.sh mono"
-    eval "${mono}/pack.sh"
+    targets+=(test)
+fi
+
+echo "*** Targets: $(join ', ' "${targets[@]}")"
+
+if contains 'clean' "${targets[@]}" || \
+   contains 'restore' "${targets[@]}" || \
+   contains 'build' "${targets[@]}" || \
+   contains 'test' "${targets[@]}" || \
+   contains 'pack' "${targets[@]}"; then
+    eval "${buildContainer}"
+fi
+
+if contains 'clean' "${targets[@]}"; then
+    echo "*** clean"
+    eval "${runContainer} 'dotnet clean'"
+fi
+
+if contains 'clean-docker' "${targets[@]}"; then
+    echo "*** clean-docker"
+    if [[ -n $(docker images -q ${containerName}) ]]; then
+        docker rmi ${containerName}
+    fi
+fi
+
+if contains 'clean-repo' "${targets[@]}"; then
+    echo "*** clean-repo"
+    cd "${slnRoot}"
+    sudo git clean -fdx
+fi
+
+if contains 'restore' "${targets[@]}"; then
+    echo "*** restore"
+    eval "${runContainer} 'dotnet restore'"
+fi
+
+if contains 'build' "${targets[@]}"; then
+    echo "*** build"
+    eval "${runContainer} 'dotnet build'"
+fi
+
+if contains 'test' "${targets[@]}"; then
+    echo "*** test"
+    eval "${runContainer} 'dotnet test'"
+fi
+
+if contains 'pack' "${targets[@]}"; then
+    echo "*** pack"
+    eval "${runContainer} 'dotnet pack'"
 fi

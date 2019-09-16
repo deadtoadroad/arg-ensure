@@ -13,37 +13,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{5F86E3DE-AC51-42DC-AF4C-1304C363B525}"
 ProjectSection(SolutionItems) = preProject
 	build\build.sh = build\build.sh
-	build\contains-f.sh = build\contains-f.sh
-	build\join-f.sh = build\join-f.sh
-EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mono", "mono", "{0031BA4C-6706-4097-97B9-98390DF514B1}"
-ProjectSection(SolutionItems) = preProject
-	build\mono\build.sh = build\mono\build.sh
-	build\mono\pack.sh = build\mono\pack.sh
-	build\mono\restore.sh = build\mono\restore.sh
-EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{402EEDD5-BF4A-4843-904E-4B0DBBCA72D9}"
-ProjectSection(SolutionItems) = preProject
-	build\dotnet\test.sh = build\dotnet\test.sh
-	build\dotnet\restore.sh = build\dotnet\restore.sh
-EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{FC9805A3-C757-4032-AA9E-9A40A329F9ED}"
-ProjectSection(SolutionItems) = preProject
-	build\images\build.sh = build\images\build.sh
-	build\images\clean.sh = build\images\clean.sh
-EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{F0724869-6862-4E0A-AFB7-262D7ECC9538}"
-ProjectSection(SolutionItems) = preProject
-	build\images\dotnet\Dockerfile = build\images\dotnet\Dockerfile
-EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mono", "mono", "{D0860C01-502C-4816-B812-DA09F065C921}"
-ProjectSection(SolutionItems) = preProject
-	build\images\mono\Dockerfile = build\images\mono\Dockerfile
+	build\Dockerfile = build\Dockerfile
+	build\f-contains.sh = build\f-contains.sh
+	build\f-join.sh = build\f-join.sh
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "functional", "functional", "{2462A91F-E7A7-4A8A-AFA4-421DD19D241C}"
@@ -59,11 +31,6 @@ Global
 		{2F3F1D2E-9E75-4ADC-9B36-6A43C545CA4D} = {893DD8FE-6B90-4B2D-8409-AE194F51CC81}
 		{1FD294E4-AFC6-4E7B-B3AC-F05422D9DADF} = {9DB95A6E-3763-4BF0-9320-E9EAA71C7A44}
 		{4D220AE9-E79A-4614-B978-B76F7CB94417} = {1FD294E4-AFC6-4E7B-B3AC-F05422D9DADF}
-		{0031BA4C-6706-4097-97B9-98390DF514B1} = {5F86E3DE-AC51-42DC-AF4C-1304C363B525}
-		{402EEDD5-BF4A-4843-904E-4B0DBBCA72D9} = {5F86E3DE-AC51-42DC-AF4C-1304C363B525}
-		{FC9805A3-C757-4032-AA9E-9A40A329F9ED} = {5F86E3DE-AC51-42DC-AF4C-1304C363B525}
-		{F0724869-6862-4E0A-AFB7-262D7ECC9538} = {FC9805A3-C757-4032-AA9E-9A40A329F9ED}
-		{D0860C01-502C-4816-B812-DA09F065C921} = {FC9805A3-C757-4032-AA9E-9A40A329F9ED}
 		{2462A91F-E7A7-4A8A-AFA4-421DD19D241C} = {9DB95A6E-3763-4BF0-9320-E9EAA71C7A44}
 		{65A323EC-CC61-451D-8D74-8CA763CEBF74} = {2462A91F-E7A7-4A8A-AFA4-421DD19D241C}
 	EndGlobalSection
